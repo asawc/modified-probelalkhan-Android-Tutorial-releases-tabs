@@ -54,6 +54,7 @@ public class GeneralReleaseInfFragment extends Fragment {
         args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
+        //
     }
 
 
@@ -85,10 +86,10 @@ public class GeneralReleaseInfFragment extends Fragment {
         TextView creationDateTextView = view.findViewById(R.id.textViewCreationDate);
         creationDateTextView.setText(mRelease.getCreationDateTime());
 
-        TextView emplSurnameTextView = view.findViewById(R.id.textViewEmployeeSurname);
+        TextView emplSurnameTextView = view.findViewById(R.id.textViewEmployeeSurname2);
         emplSurnameTextView.setText(mRelease.getEmployee().getSurname());
 
-        TextView emplNameTextView = view.findViewById(R.id.textViewEmployeeName);
+        TextView emplNameTextView = view.findViewById(R.id.textViewEmployeeName2);
         emplNameTextView.setText(mRelease.getEmployee().getName());
 
         TextView emplSymbolTextView = view.findViewById(R.id.textViewEmployeeSymbol);

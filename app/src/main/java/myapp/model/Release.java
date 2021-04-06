@@ -7,7 +7,9 @@ import java.util.List;
 
 public class Release {
 
+    @SerializedName("id")
     private final int id;
+    @SerializedName("employee")
     private final Employee employee;
     @SerializedName("status")
     private final ReleaseStatus status;
@@ -15,6 +17,7 @@ public class Release {
     private final String creationDateTime;
     @SerializedName("realizationDate")
     private final String realizationDateTime;
+    @SerializedName("productsRelease")
     private final List<ProductRelease> productsRelease;
 
     public Release(int id, Employee employee, ReleaseStatus status, List<ProductRelease> productsRelease,

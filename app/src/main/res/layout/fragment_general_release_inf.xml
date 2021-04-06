@@ -8,8 +8,6 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
 <RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="myapp.releaseActivity.ReleaseInfoActivity">
@@ -81,7 +79,7 @@
                     android:textSize="@dimen/release_gen_inf" />
 
                 <TextView
-                    android:id="@+id/textViewEmployeeSurname"
+                    android:id="@+id/textViewEmployeeSurname2"
                     android:layout_width="100dp"
                     android:layout_height="match_parent"
                     android:padding="10dp"
@@ -104,7 +102,7 @@
                     android:textSize="@dimen/release_gen_inf" />
 
                 <TextView
-                    android:id="@+id/textViewEmployeeName"
+                    android:id="@+id/textViewEmployeeName2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:padding="10dp"
