@@ -19,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import myapp.model.ProductRelease;
+import myapp.model.ProductStatus;
 import myapp.model.Release;
 import myapp.model.ReleaseStatus;
 import myapp.modelView.ReleaseProductsView;
@@ -92,7 +93,8 @@ public class DetailsReleaseFragment extends Fragment {
 
         for(ProductRelease relProduct : mReleaseProducts)
             mRelProductsView.add(new ReleaseProductsView(relProduct.getProduct().getId(),
-                    relProduct.getStatus().name(), relProduct.getProduct().getName(), relProduct.getQuantity()));
+                    relProduct.getStatus().name()/*.ProductStatus(ProductStatus.getValue())*/, relProduct.getProduct().getName(), relProduct.getQuantity()));
+        //Log.d( "Status","Product order status: " + relProduct.getStatus() + " .");
 
         if(mReleaseProducts.isEmpty())
             mRelProductsView.add(new ReleaseProductsView(0, ReleaseStatus.in_progress.name(),

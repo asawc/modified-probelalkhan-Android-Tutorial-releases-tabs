@@ -149,7 +149,7 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
                             for (Product prod : productList) {
                                 if (pView.getSymbol().equals(prod.getSymbol()))
                                     selectedProds.add(new ProductRelease(prod,
-                                            ProductStatus.OCZEKUĄCY, (reqQuantity == null ? 0 : reqQuantity)));
+                                            ProductStatus.AWAITED, (reqQuantity == null ? 0 : reqQuantity)));
                             }
                         }
                     }

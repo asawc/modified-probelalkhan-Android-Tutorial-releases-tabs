@@ -1,10 +1,17 @@
 package myapp.modelView;
 
+import com.google.gson.annotations.SerializedName;
+
 public class ReleaseProductsView {
 
     private int id;
+
+    @SerializedName("prod_order_status")
     private String status;
+
     private String name;
+
+    @SerializedName("requested_quantity")
     private int reqQuantity;
 
     public ReleaseProductsView(int id, String status, String name, int reqQuantity) {
