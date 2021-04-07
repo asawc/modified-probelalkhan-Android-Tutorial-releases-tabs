@@ -12,7 +12,7 @@ public enum ProductStatus {
     out_of_stock, // (1),
 
     @SerializedName("2")
-    WYDANY; // (2);
+    released; // (2);
 
     public static int value;
 

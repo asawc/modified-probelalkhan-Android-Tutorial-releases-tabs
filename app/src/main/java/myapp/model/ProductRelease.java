@@ -5,7 +5,10 @@ import myapp.model.ProductStatus;
 
 public class ProductRelease {
 
-    //@SerializedName("id")
+/*    @SerializedName("id")
+    private final int id;
+
+ */
     @SerializedName("product")
     private final Product product;
     @SerializedName("status")
@@ -16,7 +19,8 @@ public class ProductRelease {
 
    // private final int value;
 
-    public ProductRelease(Product product, ProductStatus status, int req_quantity) {
+    public ProductRelease(/*int id,*/ Product product, ProductStatus status, int req_quantity) {
+       // this.id = id;
         this.product = product;
         this.status = status;
         this.req_quantity = req_quantity;

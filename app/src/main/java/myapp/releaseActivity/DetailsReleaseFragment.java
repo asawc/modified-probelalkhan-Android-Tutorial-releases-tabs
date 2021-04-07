@@ -121,10 +121,10 @@ public class DetailsReleaseFragment extends Fragment {
             public ViewHolder(View v) {
                 super(v);
 
-                mIdTextView = (TextView) v.findViewById(R.id.id_prod_order);
-                mNameTextView = (TextView) v.findViewById(R.id.prod_name);
+                mIdTextView = (TextView) v.findViewById(R.id.id_prod_order);            // mIdProdOrderTextView
+                mNameTextView = (TextView) v.findViewById(R.id.prod_name);              // mProdNameTextView
                 mReqQuantityTextView = (TextView) v.findViewById(R.id.prod_req_quant);
-                mStatusTextView = (TextView) v.findViewById(R.id.prod_order_status);
+                mStatusTextView = (TextView) v.findViewById(R.id.prod_order_status);    // mStatusTextView
 
                 // Define click listener for the ViewHolder's View.
                 v.setOnClickListener(new View.OnClickListener() {
