@@ -9,7 +9,7 @@ public enum ProductStatus {
     ///AWAITED, // (0),
 
     @SerializedName("1")
-    BRAK_W_MAGAZYNIE, // (1),
+    out_of_stock, // (1),
 
     @SerializedName("2")
     WYDANY; // (2);
