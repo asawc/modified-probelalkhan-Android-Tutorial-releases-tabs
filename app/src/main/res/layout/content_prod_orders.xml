@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/prod_req_quant"
-            android:layout_width="109dp"
+            android:layout_width="95dp"
             android:layout_height="70dp"
             android:layout_toEndOf="@+id/prod_name"
             android:gravity="center_horizontal|center_vertical"
@@ -65,7 +65,7 @@
 
         <TextView
             android:id="@+id/prod_order_status"
-            android:layout_width="wrap_content"
+            android:layout_width="100dp"
             android:layout_height="70dp"
             android:layout_alignParentTop="false"
             android:layout_marginTop="0dp"

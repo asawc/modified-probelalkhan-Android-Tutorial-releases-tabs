@@ -5,7 +5,8 @@ import com.google.gson.annotations.SerializedName;
 public enum ProductStatus {
 
     @SerializedName("0")
-    AWAITED, // (0),
+    awaited,
+    ///AWAITED, // (0),
 
     @SerializedName("1")
     BRAK_W_MAGAZYNIE, // (1),

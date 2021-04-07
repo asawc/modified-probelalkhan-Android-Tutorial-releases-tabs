@@ -48,6 +48,29 @@
             <TableRow>
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    android:text="Release status"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/release_gen_inf" />
+
+                <TextView
+                    android:id="@+id/textViewReleaseStatus"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:padding="10dp"
+                    android:text="not in warehouse"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                    android:textSize="@dimen/release_gen_inf" />
+
+            </TableRow>
+
+            <TableRow/>
+
+            <TableRow>
+
+                <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"

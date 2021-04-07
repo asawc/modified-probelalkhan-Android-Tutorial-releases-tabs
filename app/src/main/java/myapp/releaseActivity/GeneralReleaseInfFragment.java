@@ -95,6 +95,10 @@ public class GeneralReleaseInfFragment extends Fragment {
         TextView emplSymbolTextView = view.findViewById(R.id.textViewEmployeeSymbol);
         emplSymbolTextView.setText(mRelease.getEmployee().getSymbol());
 
+        //
+        TextView releaseStatusTextView = view.findViewById(R.id.textViewReleaseStatus);
+        releaseStatusTextView.setText(mRelease.getStatus().toString());
+
         return view;
     }
 
