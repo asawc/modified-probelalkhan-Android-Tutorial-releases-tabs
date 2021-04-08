@@ -49,6 +49,7 @@ public class ProfileActivity extends AppCompatActivity {
         textViewEmail.setText(user.getEmail());
         //textViewGender.setText(user.getGender());
 
+
         //when the user presses logout button
         //calling the logout method
         findViewById(R.id.buttonLogout3).setOnClickListener(new View.OnClickListener() {
@@ -64,16 +65,16 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.buttonScan2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish(); //
-                //ScanActivity.getInstance(getApplicationContext()).logout();
                 openScanActivity();
+                //finish(); //
+                //ScanActivity.getInstance(getApplicationContext()).logout()
             }
         });
 
         findViewById(R.id.buttonAddEmployeeActivity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish(); //
+                //finish(); //
                 //ScanActivity.getInstance(getApplicationContext()).logout();
                 openAddEmployeeActivity();
             }
@@ -82,7 +83,7 @@ public class ProfileActivity extends AppCompatActivity {
         findViewById(R.id.buttonShowEmployeesActivity).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                //finish();
                 openShowEmployeesActivity();
             }
         });

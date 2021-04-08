@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
                 //if user pressed on button register
                 //here we will register the user to server
                 registerUser();
+                //finish();
             }
         });
 
