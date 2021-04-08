@@ -1,5 +1,7 @@
 package myapp.api;
 
+import net.simplifiedcoding.simplifiedcoding.User;
+
 import java.util.List;
 
 import myapp.model.Employee;
@@ -11,25 +13,41 @@ import retrofit2.http.GET;
 import retrofit2.http.POST;
 import retrofit2.http.Query;
 
+import static myapp.api.URLs.URL_ADD_EMPLOYEE;
+import static myapp.api.URLs.URL_ADD_PRODUCT;
 import static myapp.api.URLs.URL_ADD_RELEASE;
 import static myapp.api.URLs.URL_GET_ALL_EMPLOYEES;
 import static myapp.api.URLs.URL_GET_ALL_PRODUCTS;
 import static myapp.api.URLs.URL_GET_ALL_RELEASES;
 import static myapp.api.URLs.URL_GET_RELEASE;
+import static myapp.api.URLs.URL_LOGIN;
+import static myapp.api.URLs.URL_REGISTER;
 
 public interface MyApi {
+
+    @POST(URL_REGISTER)
+    Call<ResponseContainer<User>> addUser(@Body User user);
+
+    @GET(URL_LOGIN)
+    Call<ResponseContainer<User>> getUser(@Query("id") int id);
 
     @GET(URL_GET_ALL_EMPLOYEES)
     Call<ResponseContainer<List<Employee>>> getEmployees();
 
+    @POST(URL_ADD_EMPLOYEE)
+    Call<ResponseContainer<Employee>> addEmployee(@Body Employee employee);
+
     @GET(URL_GET_ALL_PRODUCTS)
     Call<ResponseContainer<List<Product>>> getProducts();
 
-    @POST(URL_ADD_RELEASE)
-    Call<ResponseContainer<Release>> addRelease(@Body Release release);
+    @POST(URL_ADD_PRODUCT)
+    Call<ResponseContainer<Product>> addProducts(@Body Product product);
 
     @GET(URL_GET_ALL_RELEASES)
     Call<ResponseContainer<List<Release>>> getReleases();
+
+    @POST(URL_ADD_RELEASE)
+    Call<ResponseContainer<Release>> addRelease(@Body Release release);
 
     @GET(URL_GET_RELEASE)
     Call<ResponseContainer<Release>> getRelease(@Query("id") int id);
