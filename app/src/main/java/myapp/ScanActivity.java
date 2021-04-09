@@ -32,7 +32,7 @@ public class ScanActivity extends AppCompatActivity {
     private CodeScanner mCodeScanner;
     private Button buttonCheck, buttonLogout2;
     //final String[] productsymbol_array = new String[1];
-    public String symbol; // = productsymbol_array[0];
+    public String symbol; // = productsymbol_array[0]; Prod, Empl
 
 
     @Override

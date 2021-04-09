@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -17,6 +18,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -24,10 +26,19 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import net.simplifiedcoding.simplifiedcoding.R;
+import net.simplifiedcoding.simplifiedcoding.RequestHandler;
+import net.simplifiedcoding.simplifiedcoding.SharedPrefManager;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
+import myapp.ProductInfoActivity;
+import myapp.ScanActivity;
+import myapp.api.URLs;
 import myapp.model.Product;
 import myapp.api.ApiBuilder;
 import myapp.api.CallbackImpl;
@@ -41,8 +52,10 @@ import myapp.model.ReleaseStatus;
 import myapp.modelView.EmployeeView;
 import myapp.modelView.ProductInputView;
 import myapp.modelView.ProductView;
+import myapp.model.Product;
 import retrofit2.Call;
 import retrofit2.Response;
+
 
 public class AddReleaseActivityCustViewDial extends AppCompatActivity {
 
@@ -61,6 +74,7 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
     private List<Product> productList;
     private boolean[] checkedProducts;
     private CharSequence[] prodsInChars;
+    private String symbol;
 
     private final MyApi apiService;
 
@@ -82,6 +96,7 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
         employeeList = new ArrayList<Employee>();
 
         final Button productsButton = (Button) findViewById(R.id.products_button);
+        final Button productScanButton = (Button) findViewById(R.id.product_scan_button);
         final Button employeeButton = (Button) findViewById(R.id.employees_button);
         final Button addReleaseButton = (Button) findViewById(R.id.butonAddRelease);
 
@@ -115,6 +130,15 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 buildProductsAlertDialog().show();
+            }
+        });
+
+        productScanButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openScanActivity();
+                //Product.getSymbol();
+
             }
         });
 
@@ -181,6 +205,83 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
                 errTxtView.setVisibility(View.VISIBLE);
             }
         });
+    }
+
+    private void productLogin() {
+
+
+        class ProductLogin extends AsyncTask<Void, Void, String> {
+
+            ProgressBar progressBar;
+
+            @Override
+            protected void onPreExecute() {
+                super.onPreExecute();
+                //progressBar = (ProgressBar) findViewById(R.id.progressBar);
+                //progressBar.setVisibility(View.VISIBLE);
+            }
+
+            @Override
+            protected void onPostExecute(String s) {
+                super.onPostExecute(s);
+                //progressBar.setVisibility(View.GONE);
+
+
+                try {
+                    //converting response to json object
+                    JSONObject obj = new JSONObject(s);
+
+                    //if no error in response
+                    if (!obj.getBoolean("error")) {
+                        Toast.makeText(getApplicationContext(), obj.getString("message"), Toast.LENGTH_SHORT).show();
+
+                        //getting the product from the response
+                        JSONObject productJson = obj.getJSONObject("object");
+
+                        //creating a product object
+                        Product product = new Product(
+                                productJson.getInt("id"),
+                                productJson.getInt("quantity"),
+                                productJson.getString("productname"),
+                                productJson.getString("productsymbol")
+                        );
+
+                        //storing the product in shared preferences
+                        SharedPrefManager.getInstance(getApplicationContext()).productLogin(product);
+
+                        //starting the profile activity
+                        finish();
+                        startActivity(new Intent(getApplicationContext(), ProductInfoActivity.class));
+                    } else {
+                        Toast.makeText(getApplicationContext(), "Product does not exist in warehouse database", Toast.LENGTH_SHORT).show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            protected String doInBackground(Void... voids) {
+                //creating request handler object
+                RequestHandler requestHandler = new RequestHandler();
+
+                //creating request parameters
+                HashMap<String, String> params = new HashMap<>();
+                params.put("productsymbol", symbol);
+                //params.put("password", password);
+
+                //returing the response
+                return requestHandler.sendPostRequest(URLs.URL_CHECK_PRODUCT, params);
+            }
+        }
+
+        ProductLogin ul = new ProductLogin();
+        ul.execute();
+    }
+
+    public void openScanActivity() {
+        Intent intent = new Intent(this, ScanActivity.class);
+        startActivity(intent);
     }
 
     public void openReleaseActivity() {
