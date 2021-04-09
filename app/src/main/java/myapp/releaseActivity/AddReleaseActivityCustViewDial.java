@@ -280,7 +280,7 @@ public class AddReleaseActivityCustViewDial extends AppCompatActivity {
     }
 
     public void openScanActivity() {
-        Intent intent = new Intent(this, ScanActivity.class);
+        Intent intent = new Intent(this, ScanToAddActivity.class);
         startActivity(intent);
     }
 

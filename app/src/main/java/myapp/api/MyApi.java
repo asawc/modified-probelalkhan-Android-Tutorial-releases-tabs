@@ -16,6 +16,7 @@ import retrofit2.http.Query;
 import static myapp.api.URLs.URL_ADD_EMPLOYEE;
 import static myapp.api.URLs.URL_ADD_PRODUCT;
 import static myapp.api.URLs.URL_ADD_RELEASE;
+import static myapp.api.URLs.URL_CHECK_PRODUCT;
 import static myapp.api.URLs.URL_GET_ALL_EMPLOYEES;
 import static myapp.api.URLs.URL_GET_ALL_PRODUCTS;
 import static myapp.api.URLs.URL_GET_ALL_RELEASES;
@@ -39,6 +40,9 @@ public interface MyApi {
 
     @GET(URL_GET_ALL_PRODUCTS)
     Call<ResponseContainer<List<Product>>> getProducts();
+
+    @GET(URL_CHECK_PRODUCT)
+    Call<ResponseContainer<Product>> checkProduct();
 
     @POST(URL_ADD_PRODUCT)
     Call<ResponseContainer<Product>> addProducts(@Body Product product);
