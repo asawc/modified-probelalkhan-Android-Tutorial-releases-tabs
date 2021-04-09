@@ -25,6 +25,7 @@ import myapp.Employee;
 import myapp.EmployeeInfoActivity;
 import myapp.ProductInfoActivity;
 import myapp.ScanActivity;
+import myapp.api.ApiBuilder;
 import myapp.api.CallbackImpl;
 import myapp.api.MyApi;
 import myapp.api.ResponseContainer;
@@ -51,9 +52,7 @@ public class ScanToAddActivity extends AppCompatActivity {
     private final String GET_PRODUCT_TAG = "GET_PRODUCT";
     private Product productScanned;
 
-    public ScanToAddActivity() {
-    }
-
+    public ScanToAddActivity() { apiService = new ApiBuilder().getApiService(); }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
