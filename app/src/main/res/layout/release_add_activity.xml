@@ -61,7 +61,7 @@
         <Button
             android:id="@+id/employees_button"
             android:layout_width="200dp"
-            android:layout_height="50dp"
+            android:layout_height="70dp"
             android:layout_marginTop="10dp"
             android:layout_below="@id/employeeChecked_textView"
             android:layout_gravity="center"
@@ -71,12 +71,20 @@
         <Button
             android:id="@+id/products_button"
             android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
+            android:layout_height="70dp"
             android:layout_below="@id/employees_button"
             android:layout_gravity="center"
-            android:text="Select Products"
-            />
+            android:layout_marginTop="20dp"
+            android:text="Select products from list" />
+
+        <Button
+            android:id="@+id/product_scan_button"
+            android:layout_width="200dp"
+            android:layout_height="70dp"
+            android:layout_below="@id/employees_button"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:text="Scan product' code" />
 
     </LinearLayout>
 

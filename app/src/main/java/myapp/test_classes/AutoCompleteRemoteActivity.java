@@ -11,7 +11,7 @@ import android.widget.Toast;
 import net.simplifiedcoding.simplifiedcoding.R;
 
 public class AutoCompleteRemoteActivity extends AppCompatActivity {
-    private AutoCompleteTextView storeTV;
+    private AutoCompleteTextView storeEmpl;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +22,8 @@ public class AutoCompleteRemoteActivity extends AppCompatActivity {
         RemoteData remoteData = new RemoteData(this);
         remoteData.getStoreData();
 
-        storeTV = (AutoCompleteTextView)findViewById(R.id.autoComplete);
-        storeTV.setOnItemClickListener(onItemClickListener);
+        storeEmpl = (AutoCompleteTextView)findViewById(R.id.autoComplete);
+        storeEmpl.setOnItemClickListener(onItemClickListener);
     }
 
     private AdapterView.OnItemClickListener onItemClickListener =
