@@ -63,7 +63,7 @@ public class ProductInfoActivity extends AppCompatActivity {
         findViewById(R.id.buttonScan2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                finish();
+                //finish();
                 openScanActivity();
             }
         });
